@@ -33,8 +33,13 @@ export const today = () => new Date().toISOString().slice(0, 10);
 function touchStreak() {
   const t = today();
   if (state.streak.last === t) return;
-  const y = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-  state.streak.count = state.streak.last === y ? state.streak.count + 1 : 1;
+  const day = (n) => new Date(Date.now() - n * 86400000).toISOString().slice(0, 10);
+  const freezes = state.data.freezes || 0;
+  if (state.streak.last === day(1)) state.streak.count += 1;
+  else if (state.streak.last === day(2) && freezes > 0) { state.data.freezes = freezes - 1; state.streak.count += 1; state.streak.frozeOn = day(1); }
+  else state.streak.count = 1;
+  // Un « gel de série » gagné tous les 7 jours (2 au maximum)
+  if (state.streak.count % 7 === 0) state.data.freezes = Math.min(2, (state.data.freezes || 0) + 1);
   state.streak.last = t;
 }
 

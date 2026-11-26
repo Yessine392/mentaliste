@@ -4,11 +4,19 @@ Application web (PWA, installable et utilisable hors ligne) pour apprendre le **
 
 > Le mentalisme est un **art du spectacle**. Aucune technique enseignée ici ne relève du surnaturel, et l'application intègre une charte éthique.
 
+## Une pédagogie de micro-leçons
+
+- **Leçons de 5 minutes** découpées en petites cartes, avec des exercices intercalés : QCM, vrai/faux, associer les paires, remettre dans l'ordre, compléter la phrase.
+- **Cœurs** (5, un perdu par erreur, rechargés avec le temps ou par l'entraînement ; mode zen possible), **combos**, **sons**, **objectif quotidien**, **série de jours** avec gel de série, **succès** et une mascotte 🔮.
+- **Chemin d'apprentissage** visuel : les leçons se débloquent une par une.
+- **Entraînement intelligent** : répétition espacée (boîtes de Leitner) sur vos points faibles. Les erreurs d'une leçon reviennent à la fin de la session.
+- **Sources** : chaque leçon cite ses références (40 études scientifiques et ouvrages de référence, page « Sources et méthode »).
+
 ## Contenu
 
 **Programme de formation de 52 semaines** : 5 phases, une pratique quotidienne guidée (20 à 35 min), un défi concret chaque semaine et 6 jalons de représentation, jusqu'à un spectacle de 30 minutes en semaine 52.
 
-**Parcours en 5 niveaux, 20 modules, 45 leçons, 108 questions de quiz**
+**Parcours en 5 niveaux, 20 unités, 45 leçons, plus de 200 exercices**
 
 | Niveau | Thèmes |
 |---|---|

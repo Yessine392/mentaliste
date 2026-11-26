@@ -188,7 +188,8 @@ export const journalTool = {
       };
       el.querySelectorAll('[data-del]').forEach((b) => (b.onclick = () => { store.removeJournal(Number(b.dataset.del)); render(); }));
     };
-    const lessonTitle = ctx.params.lesson ? `Exercice : ${ctx.params.lessonTitle || ctx.params.lesson}` : '';
-    render(lessonTitle);
+    let prefill = '';
+    try { prefill = sessionStorage.getItem('journalPrefill') || ''; sessionStorage.removeItem('journalPrefill'); } catch { /* indisponible */ }
+    render(prefill ? `Exercice : ${prefill}` : '');
   },
 };
