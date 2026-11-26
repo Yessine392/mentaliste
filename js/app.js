@@ -1,18 +1,21 @@
 import { part1 } from './data/curriculum1.js';
 import { part2 } from './data/curriculum2.js';
+import { part3 } from './data/curriculum3.js';
+import { phases, weeks } from './data/program.js';
+import { ring, haptic, confetti, initSpotlight, initReadProgress } from './fx.js';
 import { glossary } from './data/glossary.js';
 import { library, resources } from './data/library.js';
 import { store, rankFor, ranks } from './store.js';
 import { tools } from './tools/index.js';
 import { esc, shuffle, toast } from './util.js';
 
-export const modules = [...part1, ...part2];
+export const modules = [...part1, ...part2, ...part3].sort((a, b) => a.level - b.level);
 export const levels = [
-  { n: 1, name: 'Débutant', sub: 'Fondations', color: '#7dd3a8' },
-  { n: 2, name: 'Apprenti', sub: 'Psychologie et observation', color: '#7cc4f0' },
-  { n: 3, name: 'Praticien', sub: 'Techniques classiques', color: '#b79cf5' },
-  { n: 4, name: 'Avancé', sub: 'Prouesses et cartes', color: '#f2b46d' },
-  { n: 5, name: 'Expert', sub: 'Art, métier et esprit critique', color: '#f07c8f' },
+  { n: 1, name: 'Débutant', sub: 'Fondations', color: '#34d399' },
+  { n: 2, name: 'Apprenti', sub: 'Psychologie, observation, présence', color: '#22d3ee' },
+  { n: 3, name: 'Praticien', sub: 'Techniques classiques', color: '#a78bfa' },
+  { n: 4, name: 'Avancé', sub: 'Prouesses, cartes, duo, psychokinèse', color: '#fbbf24' },
+  { n: 5, name: 'Expert', sub: 'Spectacle, création, métier', color: '#f472b6' },
 ];
 const allLessons = modules.flatMap((m) => m.lessons.map((l) => ({ ...l, module: m })));
 const lessonById = Object.fromEntries(allLessons.map((l) => [l.id, l]));
@@ -49,6 +52,22 @@ function header(title, back) {
 }
 
 // ---------- Vues ----------
+const DAYS_SHORT = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
+function greeting() {
+  const h = new Date().getHours();
+  return h < 6 ? 'Bonne nuit' : h < 12 ? 'Bonjour' : h < 18 ? 'Bon après-midi' : 'Bonsoir';
+}
+function weekActivity() {
+  const act = store.get().activity;
+  const days = Array.from({ length: 7 }, (_, i) => {
+    const d = new Date(Date.now() - (6 - i) * 86400000);
+    const k = d.toISOString().slice(0, 10);
+    return { label: DAYS_SHORT[d.getDay()], xp: act[k] || 0, today: i === 6 };
+  });
+  const max = Math.max(30, ...days.map((d) => d.xp));
+  return `<div class="week">${days.map((d) => `<div><i class="${d.xp ? '' : 'zero'} ${d.today ? 'today' : ''}" style="height:${Math.max(6, (d.xp / max) * 70)}px" title="${d.xp} XP"></i><span>${d.label}</span></div>`).join('')}</div>`;
+}
+
 function viewHome() {
   const s = store.get();
   const r = rankFor(s.xp);
@@ -56,40 +75,174 @@ function viewHome() {
   const pctRank = r.next ? Math.round(((s.xp - r.xp) / (r.next.xp - r.xp)) * 100) : 100;
   const doneCount = Object.keys(s.completed).length;
   const suggestions = shuffle(tools.filter((t) => isLevelUnlocked(t.level))).slice(0, 2);
+  const cw = currentWeek();
+  const wk = weeks[cw - 1];
+  const ws = weekStatus(wk);
+  const ph = phases.find((p) => cw >= p.weeks[0] && cw <= p.weeks[1]);
   return `
-  <section class="hero">
-    <div class="hero-eye">👁️</div>
-    <h1>Mentaliste</h1>
-    <p>De la première illusion à la maîtrise. Un parcours complet, nourri des traditions française, anglaise, allemande, espagnole et américaine.</p>
-  </section>
-  <section class="card rank">
-    <div class="rank-top">
-      <span class="rank-icon">${r.icon}</span>
-      <div><div class="muted small">Votre rang</div><strong>${r.name}</strong></div>
-      <div class="stats"><span title="Points d'expérience">⭐ ${s.xp} XP</span><span title="Jours consécutifs">🔥 ${s.streak.count} j</span></div>
+  <header class="top">
+    <div class="greet"><div class="muted">${greeting()} 👋</div><h1>Prêt à <span class="gradient-text">lire les esprits</span> ?</h1></div>
+    <a class="avatar" href="#/rangs" aria-label="Rangs">${r.icon}</a>
+  </header>
+  <section class="card hero">
+    <div class="rank-row">
+      ${ring(pctRank, { size: 84, stroke: 8, label: `${pctRank}%` })}
+      <div><div class="muted small">Votre rang</div><div class="rank-name">${r.name}</div>
+      <div class="muted small">${r.next ? `${r.next.xp - s.xp} XP avant « ${r.next.name} »` : 'Rang maximal atteint !'}</div></div>
     </div>
-    ${bar(pctRank, 'var(--gold)')}
-    <div class="muted small">${r.next ? `${r.next.xp - s.xp} XP avant « ${r.next.name} »` : 'Rang maximal atteint !'} · ${doneCount}/${allLessons.length} leçons</div>
+    <div class="chips">
+      <span class="chip">⭐ <b>${s.xp}</b> XP</span>
+      <span class="chip">🔥 <b>${s.streak.count}</b> jour${s.streak.count > 1 ? 's' : ''}</span>
+      <span class="chip">📚 <b>${doneCount}</b>/${allLessons.length}</span>
+    </div>
   </section>
-  ${nl ? `<a class="card continue" href="#/lecon/${nl.id}">
-      <div class="muted small">${doneCount ? 'Continuer' : 'Commencer'} · Niveau ${nl.module.level} · ${esc(nl.module.title)}</div>
-      <strong>${nl.module.icon} ${esc(nl.title)}</strong>
-      <span class="pill">${nl.duration} min →</span>
-    </a>` : `<div class="card continue"><strong>🏆 Vous avez terminé tout le parcours !</strong><div class="muted small">Continuez à vous entraîner dans le Labo et en révision.</div></div>`}
-  <h2 class="section">Votre parcours</h2>
+  <a class="card continue" href="#/semaine/${cw}">
+    <div class="muted small">Programme 52 semaines · Phase ${ph.n} · ${esc(ph.name)}</div>
+    <strong>Semaine ${cw} : ${esc(wk.title)}</strong>
+    ${bar(ws.pct)}
+    <div class="row between"><span class="muted small">${ws.daysDone}/7 jours de pratique · ${ws.lessonsDone}/${wk.lessons.length} leçon${wk.lessons.length > 1 ? 's' : ''}</span><span class="pill">Ouvrir →</span></div>
+  </a>
+  ${nl ? `<a class="card module" href="#/lecon/${nl.id}">
+      <span class="mod-icon">${nl.module.icon}</span>
+      <div class="mod-body"><div class="muted small">${doneCount ? 'Prochaine leçon' : 'Première leçon'} · Niveau ${nl.module.level}</div><strong>${esc(nl.title)}</strong></div>
+      <span class="tag">${nl.duration} min</span>
+    </a>` : `<div class="card"><strong>🏆 Vous avez terminé tout le parcours !</strong><div class="muted small">Continuez à vous entraîner dans le Labo et en révision.</div></div>`}
+  <h2 class="section">Cette semaine</h2>
+  <div class="card">${weekActivity()}</div>
+  <h2 class="section">Niveaux</h2>
   <div class="levels-mini">
     ${levels.map((lv) => { const p = levelProgress(lv.n); const u = isLevelUnlocked(lv.n); return `
-      <a class="lv-mini ${u ? '' : 'locked'}" href="#/parcours">
-        <span class="lv-badge" style="background:${lv.color}">${u ? lv.n : '🔒'}</span>
-        <div><strong>${lv.name}</strong><div class="muted small">${lv.sub}</div>${bar(p.pct, lv.color)}</div>
+      <a class="card lv-mini ${u ? '' : 'locked'}" href="#/parcours">
+        ${ring(p.pct, { size: 56, stroke: 6, color: lv.color, label: u ? String(lv.n) : '🔒' })}
+        <strong>${lv.name}</strong><span class="muted small">${p.done}/${p.total} leçons</span>
       </a>`; }).join('')}
   </div>
   <h2 class="section">Entraînement du jour</h2>
   <div class="grid2">
     ${suggestions.map((t) => `<a class="card tool-card" href="#/labo/${t.id}"><span class="tool-icon">${t.icon}</span><strong>${t.name}</strong><span class="muted small">${t.desc}</span></a>`).join('')}
   </div>
-  <a class="card review-cta" href="#/revision"><strong>🔁 Révision express</strong><span class="muted small">10 questions tirées des leçons terminées</span></a>
+  <a class="card review-cta" href="#/revision"><span class="tool-icon">🔁</span><div><strong>Révision express</strong><div class="muted small">10 questions tirées des leçons terminées</div></div></a>
   `;
+}
+
+// ---------- Programme 52 semaines ----------
+const prog = () => store.getData('program', { start: null, weeks: {} });
+function currentWeek() {
+  const p = prog();
+  if (p.manual) return p.manual;
+  if (!p.start) return 1;
+  const n = Math.floor((Date.now() - new Date(p.start).getTime()) / (7 * 86400000)) + 1;
+  return Math.min(52, Math.max(1, n));
+}
+function weekStatus(wk) {
+  const st = prog().weeks[wk.n] || {};
+  const days = st.days || [];
+  const daysDone = days.filter(Boolean).length;
+  const lessonsDone = wk.lessons.filter((id) => store.isDone(id)).length;
+  const parts = [daysDone / 7, wk.lessons.length ? lessonsDone / wk.lessons.length : 1, st.challenge ? 1 : 0];
+  const pct = Math.round((parts.reduce((a, b) => a + b, 0) / 3) * 100);
+  const done = daysDone >= 5 && lessonsDone === wk.lessons.length && !!st.challenge;
+  return { days, daysDone, lessonsDone, challenge: !!st.challenge, pct, done };
+}
+function saveWeek(n, patch) {
+  const p = prog();
+  p.weeks[n] = { ...(p.weeks[n] || {}), ...patch };
+  if (!p.start) p.start = new Date().toISOString().slice(0, 10);
+  store.setData('program', p);
+}
+
+function viewProgramme() {
+  const cw = currentWeek();
+  const doneWeeks = weeks.filter((w) => weekStatus(w).done).length;
+  const totalMin = weeks.reduce((a, w) => a + w.d.reduce((x, d) => x + d[1], 0) * 7, 0);
+  return header('Programme 52 semaines') + `
+  <section class="card hero">
+    <div class="rank-row">${ring(Math.round((doneWeeks / 52) * 100), { size: 84, stroke: 8, label: `${doneWeeks}/52` })}
+      <div><div class="rank-name">Une année pour devenir mentaliste</div>
+      <div class="muted small">5 phases · 45 leçons · ${Math.round(totalMin / 60)} h de pratique guidée · 6 jalons de représentation</div></div></div>
+    <p class="small muted">Chaque semaine : des leçons, une pratique quotidienne de 20 à 35 minutes et un défi concret. Une semaine est validée avec ses leçons, au moins 5 jours de pratique et le défi réussi.</p>
+    <div class="row"><a class="btn primary" href="#/semaine/${cw}">Semaine ${cw} →</a><button class="btn ghost" id="restart">${prog().start ? 'Recommencer à la semaine 1' : 'Démarrer aujourd’hui'}</button></div>
+  </section>
+  ${phases.map((ph) => `<section class="level">
+    <div class="level-head"><span class="lv-badge" style="background:${ph.color}">${ph.n}</span>
+      <div><h2>${esc(ph.name)}</h2><div class="muted small">Semaines ${ph.weeks[0]} à ${ph.weeks[1]} · ${esc(ph.goal)}</div></div></div>
+    <div class="weeks-grid">${weeks.filter((w) => w.n >= ph.weeks[0] && w.n <= ph.weeks[1]).map((w) => { const st = weekStatus(w); return `
+      <a class="week-cell ${st.done ? 'done' : ''} ${w.n === cw ? 'current' : ''} ${w.milestone ? 'milestone' : ''}" href="#/semaine/${w.n}" style="--c:${ph.color}">
+        <span class="wn">${st.done ? '✓' : w.n}</span><span class="wt">${esc(w.title)}</span>
+        <span class="wbar"><i style="width:${st.pct}%"></i></span>
+      </a>`; }).join('')}</div></section>`).join('')}`;
+}
+function mountProgramme() {
+  const b = view.querySelector('#restart');
+  b.onclick = () => {
+    if (prog().start && !b.dataset.confirm) { b.dataset.confirm = '1'; b.textContent = 'Confirmer (la progression des semaines sera effacée)'; return; }
+    store.setData('program', { start: new Date().toISOString().slice(0, 10), weeks: {} });
+    toast('Programme démarré : semaine 1 !');
+    route();
+  };
+}
+
+function viewWeek(n) {
+  const wk = weeks[n - 1];
+  if (!wk) return notFound();
+  const ph = phases.find((p) => n >= p.weeks[0] && n <= p.weeks[1]);
+  const st = weekStatus(wk);
+  const t = tools;
+  const dayLabels = ['J1', 'J2', 'J3', 'J4', 'J5', 'J6', 'J7'];
+  const daily = wk.d.reduce((a, d) => a + d[1], 0);
+  return header(`Semaine ${n}`, '#/programme') + `
+  <div class="muted small crumbs">Phase ${ph.n} · ${esc(ph.name)}${wk.milestone ? ' · 🎯 Semaine jalon' : ''}</div>
+  <section class="card hero">
+    <div class="rank-row">${ring(st.pct, { size: 76, stroke: 8, color: ph.color, label: `${st.pct}%` })}
+    <div><div class="rank-name">${esc(wk.title)}</div><div class="muted small">${esc(wk.focus)}</div></div></div>
+  </section>
+  ${wk.lessons.length ? `<h2 class="section">Leçons</h2>${wk.lessons.map((id) => { const l = lessonById[id]; const d = store.isDone(id); return `
+    <a class="card lesson-item ${d ? 'done' : ''}" href="#/lecon/${id}"><span class="num">${d ? '✓' : '•'}</span>
+      <div><strong>${esc(l.title)}</strong><div class="muted small">${l.module.icon} ${esc(l.module.title)} · ${l.duration} min</div></div></a>`; }).join('')}`
+    : '<h2 class="section">Leçons</h2><p class="card muted small">Semaine de consolidation : pas de nouvelle leçon, place à la pratique.</p>'}
+  <h2 class="section">Pratique quotidienne · ${daily} min</h2>
+  <section class="card">
+    ${wk.d.map(([tool, min, what]) => { const tt = tool && t.find((x) => x.id === tool); return `
+      <div class="drill">${tt ? `<a class="tool-icon" href="#/labo/${tool}" title="${esc(tt.name)}">${tt.icon}</a>` : '<span class="tool-icon">🏋️</span>'}
+        <div><strong>${min} min</strong>${tt ? ` · <a href="#/labo/${tool}">${esc(tt.name)}</a>` : ''}<div class="muted small">${esc(what)}</div></div></div>`; }).join('')}
+    <div class="days">${dayLabels.map((d, i) => `<button class="day ${st.days[i] ? 'on' : ''}" data-day="${i}" aria-pressed="${!!st.days[i]}">${st.days[i] ? '✓' : d}</button>`).join('')}</div>
+    <p class="muted small center">Cochez chaque jour de pratique (5 jours minimum pour valider la semaine).</p>
+  </section>
+  <h2 class="section">Défi de la semaine</h2>
+  <label class="card challenge ${st.challenge ? 'on' : ''}"><input type="checkbox" id="chal" ${st.challenge ? 'checked' : ''}><span>${esc(wk.challenge)}</span></label>
+  <div class="row between">
+    ${n > 1 ? `<a class="btn ghost" href="#/semaine/${n - 1}">← S${n - 1}</a>` : '<span></span>'}
+    <button class="btn ghost small" id="setcur">${currentWeek() === n ? '📍 Semaine en cours' : 'Définir comme semaine en cours'}</button>
+    ${n < 52 ? `<a class="btn ghost" href="#/semaine/${n + 1}">S${n + 1} →</a>` : '<span></span>'}
+  </div>`;
+}
+function mountWeek(n) {
+  const wk = weeks[n - 1];
+  if (!wk) return;
+  const before = weekStatus(wk).done;
+  const after = () => {
+    const now = weekStatus(wk).done;
+    if (!before && now) { const prev = store.get().xp; store.addXp(30); confetti(); toast(`Semaine ${n} validée ! +30 XP`, 3500); checkRankUp(prev); }
+    route();
+  };
+  view.querySelectorAll('[data-day]').forEach((b) => (b.onclick = () => {
+    const days = [...(prog().weeks[n]?.days || [])];
+    const i = Number(b.dataset.day);
+    days[i] = !days[i];
+    haptic();
+    if (days[i]) store.addXp(5);
+    saveWeek(n, { days });
+    after();
+  }));
+  view.querySelector('#chal').onchange = (e) => { haptic(); saveWeek(n, { challenge: e.target.checked }); after(); };
+  view.querySelector('#setcur').onclick = () => {
+    const p = prog();
+    if (!p.start) p.start = new Date().toISOString().slice(0, 10);
+    p.manual = n;
+    store.setData('program', p);
+    toast(`Semaine ${n} définie comme semaine en cours`);
+    route();
+  };
 }
 
 function viewParcours() {
@@ -99,7 +252,7 @@ function viewParcours() {
     const mods = modules.filter((m) => m.level === lv.n);
     return `<section class="level ${u ? '' : 'locked'}">
       <div class="level-head"><span class="lv-badge" style="background:${lv.color}">${lv.n}</span>
-        <div><h2>Niveau ${lv.n} · ${lv.name}</h2><div class="muted small">${lv.sub} · ${p.done}/${p.total} leçons</div></div></div>
+        <div><h2>Niveau ${lv.n} · ${lv.name}</h2><div class="muted small">${lv.sub} · ${p.done}/${p.total} leçons</div></div>${ring(p.pct, { size: 48, stroke: 5, color: lv.color, label: `${p.pct}` })}</div>
       ${u ? '' : `<p class="muted small lock-note">🔒 Terminez 75 % du niveau ${lv.n - 1} pour débloquer (ou activez « tout débloquer » dans Réglages).</p>`}
       ${mods.map((m) => { const mp = moduleProgress(m); return `
         <a class="card module ${u ? '' : 'disabled'}" href="${u ? `#/module/${m.id}` : '#/parcours'}">
@@ -182,6 +335,7 @@ function runQuiz(questions, { onFinish, title, back }) {
           if (Number(o.dataset.k) === q.answer) o.classList.add('right');
         });
         if (!ok) b.classList.add('wrong');
+        haptic(ok ? 'ok' : 'ko');
         const ex = view.querySelector('.explain');
         ex.hidden = false;
         ex.innerHTML = `<p><strong>${ok ? '✅ Exact !' : '❌ Pas tout à fait.'}</strong> ${esc(q.explain || '')}</p><button class="btn primary block" id="nextq">${i + 1 < qs.length ? 'Suivante →' : 'Voir le résultat'}</button>`;
@@ -210,7 +364,7 @@ function mountQuiz(id) {
         el.innerHTML = `<p>${first ? `Leçon validée ! <strong>+${xp} XP</strong>` : 'Leçon déjà validée : bonne révision !'}</p>
           ${nxt ? `<a class="btn primary block" href="#/lecon/${nxt.id}">Leçon suivante : ${esc(nxt.title)} →</a>` : `<a class="btn primary block" href="#/parcours">Retour au parcours</a>`}
           <a class="btn ghost block" href="#/module/${m.id}">Retour au module</a>`;
-        if (first) checkRankUp(store.get().xp - xp);
+        if (first) { confetti(); checkRankUp(store.get().xp - xp); }
       } else {
         el.innerHTML = `<p>Il faut 70 % pour valider. Relisez la leçon et réessayez !</p>
           <a class="btn primary block" href="#/lecon/${id}">Relire la leçon</a>
@@ -275,6 +429,7 @@ function mountTool(id, params) {
 // ---------- Plus ----------
 function viewPlus() {
   const items = [
+    ['#/revision', '🔁', 'Révision express', '10 questions tirées des leçons terminées'],
     ['#/glossaire', '🌍', 'Glossaire multilingue', 'Les termes du métier en français, anglais, allemand et espagnol'],
     ['#/bibliotheque', '📚', 'Bibliothèque', 'Les ouvrages de référence du monde entier, par niveau'],
     ['#/ethique', '⚖️', 'Charte éthique', 'Les règles du mentaliste responsable'],
@@ -369,11 +524,13 @@ function route() {
   const params = Object.fromEntries(new URLSearchParams(query || ''));
   const parts = path.split('/').filter(Boolean);
   const [a, b] = parts;
-  document.querySelectorAll('.tabbar a').forEach((t) => t.classList.toggle('active', t.dataset.tab === (a || 'home') || (t.dataset.tab === 'parcours' && ['module', 'lecon', 'quiz'].includes(a)) || (t.dataset.tab === 'plus' && ['glossaire', 'bibliotheque', 'ethique', 'reglages', 'rangs'].includes(a))));
+  document.querySelectorAll('.tabbar a').forEach((t) => t.classList.toggle('active', t.dataset.tab === (a || 'home') || (t.dataset.tab === 'parcours' && ['module', 'lecon', 'quiz'].includes(a)) || (t.dataset.tab === 'programme' && a === 'semaine') || (t.dataset.tab === 'plus' && ['glossaire', 'bibliotheque', 'ethique', 'reglages', 'rangs', 'revision'].includes(a))));
   window.scrollTo(0, 0);
   switch (a) {
     case undefined: view.innerHTML = viewHome(); break;
     case 'parcours': view.innerHTML = viewParcours(); break;
+    case 'programme': view.innerHTML = viewProgramme(); mountProgramme(); break;
+    case 'semaine': view.innerHTML = viewWeek(Number(b)); mountWeek(Number(b)); break;
     case 'module': view.innerHTML = viewModule(b); break;
     case 'lecon': view.innerHTML = viewLesson(b); mountLesson(b); break;
     case 'quiz': if (lessonById[b] && isLevelUnlocked(lessonById[b].module.level)) mountQuiz(b); else view.innerHTML = notFound(); break;
@@ -387,10 +544,15 @@ function route() {
     case 'reglages': view.innerHTML = viewReglages(); mountReglages(); break;
     default: view.innerHTML = notFound();
   }
+  view.classList.remove('enter');
+  void view.offsetWidth;
+  view.classList.add('enter');
   view.focus({ preventScroll: true });
 }
 
 window.addEventListener('hashchange', route);
+initSpotlight();
+initReadProgress();
 route();
 
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
