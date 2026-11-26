@@ -16,7 +16,7 @@ Application web (PWA, installable et utilisable hors ligne) pour apprendre le **
 
 **Programme de formation de 52 semaines** : 5 phases, une pratique quotidienne guidée (20 à 35 min), un défi concret chaque semaine et 6 jalons de représentation, jusqu'à un spectacle de 30 minutes en semaine 52.
 
-**Parcours en 5 niveaux, 20 unités, 45 leçons, plus de 200 exercices**
+**Parcours en 5 niveaux, 21 unités, 49 leçons, plus de 200 exercices**
 
 | Niveau | Thèmes |
 |---|---|

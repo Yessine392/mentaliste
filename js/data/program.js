@@ -13,12 +13,12 @@ const W = (n, title, lessons, focus, d, challenge, milestone = false) => ({ n, t
 
 export const weeks = [
   // ---------- Phase 1 : Fondations ----------
-  W(1, 'Entrer dans le monde du mentalisme', ['m1l1', 'm1l2'], "Découvrir l'histoire et les grandes familles d'effets.",
-    [[null, 15, "Regarder un extrait de mentaliste (Derren Brown, Banachek, Viktor Vincent…) et noter effet / hypothèses de méthode"], ['journal', 5, "Noter une idée d'effet rêvé"]],
-    "Analysez 5 effets différents en séparant l'effet perçu et 3 méthodes possibles."),
-  W(2, 'L’éthique du mentaliste', ['m1l3'], "Définir vos limites éthiques et votre position face au public.",
-    [[null, 15, "Écrire et réécrire votre « disclaimer » et la présentation de votre personnage"], ['journal', 5, "Noter vos réflexions sur le personnage"]],
-    "Rédigez votre charte personnelle : 5 règles que vous ne transgresserez jamais sur scène."),
+  W(1, 'Vos deux premiers miracles', ['m0l1', 'm0l2'], "Apprendre le nombre 37 et la prédiction du livre, mot pour mot.",
+    [[null, 10, "Répéter à voix haute le script du 37, puis celui du livre"], ['polls', 5, "Tester le 37 sur une personne par jour et noter la réponse"]],
+    "Présentez le 37 à 3 personnes cette semaine et notez leurs réactions dans le journal."),
+  W(2, 'Votre premier mini-numéro', ['m0l3', 'm0l4'], "Ajouter l'objet choisi d'avance et enchaîner les 3 effets.",
+    [[null, 15, "Enchaîner 37, objet et livre devant le miroir, avec les transitions"], ['journal', 5, "Noter ce qui a marché et ce qui a coincé"]],
+    "🎯 JALON : jouez votre mini-numéro de 3 effets devant 3 personnes.", true),
   W(3, 'Le forçage', ['m2l1'], "Maîtriser l'équivoque et les premiers forçages psychologiques.",
     [[null, 15, "10 équivoques devant le miroir avec 3 objets"], ['polls', 10, "Tester le forçage du 37 sur 2 personnes par jour"]],
     "Collectez au moins 15 réponses au test « 1 à 50, deux chiffres impairs différents » dans le Carnet de forçages."),
@@ -31,11 +31,11 @@ export const weeks = [
   W(6, 'Personnage, volontaires et détournement', ['m3l1', 'm3l2'], "Créer votre personnage, diriger l'attention et choisir les bons volontaires.",
     [[null, 10, "Écrire la fiche de votre personnage (nom de scène, style, 3 adjectifs)"], [null, 10, "Observer des groupes et désigner mentalement le « volontaire idéal »"], [null, 5, "Répéter le forçage par coupe croisée en travaillant le délai"]],
     "Faites raconter un de vos effets par un spectateur une semaine plus tard et notez les déformations."),
-  W(7, 'La voix', ['m15l1'], "Travailler volume, débit, silences.",
-    [[null, 15, "Lire votre script à voix haute en vous enregistrant, ralentir de 20 %"], [null, 5, "Respiration abdominale : 5 minutes"]],
-    "Enregistrez deux versions d'un même effet à 1 semaine d'intervalle et comparez."),
-  W(8, 'Présence et premier passage', ['m15l2'], "Posture, regard, trac… et premier mini-spectacle.",
-    [[null, 15, "Répétition filmée de vos 3 effets enchaînés"], ['journal', 5, "Noter les gestes parasites repérés"]],
+  W(7, 'Voix et présence', ['m15l1', 'm15l2'], "Volume, débit, silences, posture, regard et trac.",
+    [[null, 15, "Lire votre script à voix haute en vous enregistrant, ralentir de 20 %"], [null, 5, "Répétition filmée de vos effets enchaînés"]],
+    "Enregistrez deux versions d'un même effet à quelques jours d'intervalle et comparez."),
+  W(8, 'Culture, éthique et premier passage', ['m1l1', 'm1l2', 'm1l3'], "Connaître l'histoire du métier, ses familles d'effets et vos limites éthiques.",
+    [[null, 15, "Regarder un extrait de mentaliste et séparer effet perçu et méthodes possibles"], ['journal', 5, "Écrire votre charte personnelle en 5 règles"]],
     "🎯 JALON : présentez 3 effets (forçage, coup d'avance, 1089) à au moins 3 personnes. Notez tout dans le journal.", true),
 
   // ---------- Phase 2 : L'esprit humain ----------

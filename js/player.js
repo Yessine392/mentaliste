@@ -148,9 +148,9 @@ export function playSession(view, { title, items, onQuit, onFinish }) {
     fb.className = 'p-fb'; fb.innerHTML = '';
     foot.classList.remove('ok', 'ko');
     body.classList.remove('in'); void body.offsetWidth; body.classList.add('in');
-    if (it.kind === 'learn' || it.kind === 'recap') {
-      body.innerHTML = `<div class="ex-kind">${it.kind === 'recap' ? '📌 À retenir' : '📖 Découvrir'}</div>${it.kind === 'learn' && !hasHeading(it.html) && it.title ? `<h3>${esc(it.title)}</h3>` : ''}<div class="learn">${it.html}</div>`;
-      cta.disabled = false; cta.hidden = false; cta.textContent = 'Continuer';
+    if (it.kind === 'learn' || it.kind === 'recap' || it.kind === 'script') {
+      body.innerHTML = `<div class="ex-kind">${{ recap: '📌 À retenir', script: '🎬 Répétez à voix haute', learn: '📖 Découvrir' }[it.kind]}</div>${it.kind === 'learn' && !hasHeading(it.html) && it.title ? `<h3>${esc(it.title)}</h3>` : ''}<div class="learn">${it.html}</div>`;
+      cta.disabled = false; cta.hidden = false; cta.textContent = it.kind === 'script' ? 'Je l’ai répété ✓' : 'Continuer';
       cta.onclick = () => { idx++; show(); };
       return;
     }
@@ -220,6 +220,7 @@ export function buildLessonItems(lesson, extra = []) {
     items.push({ kind: 'learn', html: c, title: i === 0 ? lesson.title : '' });
     if (exs.length && i < chunks.length - 1 && i % 1 === 0) items.push(exs.shift());
   });
+  if (lesson.script) items.push({ kind: 'script', html: `<p class="muted">Lisez ce texte <strong>à voix haute</strong>, trois fois, comme si quelqu'un était en face de vous. C'est la répétition qui rend naturel.</p><ol class="script">${lesson.script.map((l) => `<li>${esc(l)}</li>`).join('')}</ol>` });
   items.push({ kind: 'recap', html: `<ul class="recap">${lesson.keyPoints.map((k) => `<li>${esc(k)}</li>`).join('')}</ul>` });
   items.push(...exs);
   return items;

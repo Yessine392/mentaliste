@@ -3,9 +3,9 @@ export const part1 = [
   {
     id: 'm1',
     level: 1,
-    title: "Qu'est-ce que le mentalisme ?",
+    title: 'Culture et éthique du mentaliste',
     icon: '🎩',
-    summary: "Définition, histoire internationale et éthique : les bases indispensables avant toute technique.",
+    summary: "D'où vient votre art, ses grandes familles d'effets et les règles à ne jamais transgresser.",
     lessons: [
       {
         id: 'm1l1',

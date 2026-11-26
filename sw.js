@@ -1,10 +1,10 @@
 // Service worker : fonctionnement hors ligne (stratégie « réseau d'abord, cache en secours »)
-const CACHE = 'mentaliste-v3';
+const CACHE = 'mentaliste-v4';
 const ASSETS = [
   './', './index.html', './css/style.css', './manifest.webmanifest',
   './icons/icon.svg', './icons/icon-192.png', './icons/icon-512.png',
   './js/app.js', './js/store.js', './js/util.js',
-  './js/data/curriculum1.js', './js/data/curriculum2.js', './js/data/glossary.js', './js/data/library.js',
+  './js/data/curriculum0.js', './js/data/curriculum1.js', './js/data/curriculum2.js', './js/data/glossary.js', './js/data/library.js',
   './js/data/curriculum3.js', './js/data/program.js', './js/fx.js', './js/game.js', './js/player.js', './js/data/exercises.js', './js/data/sources.js', './js/tools/extra.js', './js/tools/index.js', './js/tools/memory.js', './js/tools/micro.js', './js/tools/calc.js', './js/tools/cards.js', './js/tools/reading.js',
 ];
 

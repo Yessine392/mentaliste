@@ -1,6 +1,24 @@
 // Exercices courts et variés pour chaque leçon (en plus des QCM de la leçon)
 // tf = vrai/faux · pairs = associer · order = remettre dans l'ordre · fill = compléter la phrase
 export const exercises = {
+  m0l1: [
+    { t: 'order', q: 'Remettez le texte du 37 dans l’ordre', items: ['J’écris et je pose le papier', 'Un nombre entre 1 et 50', 'Deux chiffres impairs, pas 15', 'Deux chiffres différents, pas 11', 'Dites-le à voix haute'] },
+    { t: 'fill', s: 'Votre sortie, notée dans le téléphone, est le nombre ___.', o: ['35', '13', '50'], a: 0 },
+    { t: 'tf', s: 'Si le spectateur dit un autre nombre, l’expérience est ratée et il faut tout arrêter.', a: false, e: "Souriez et enchaînez : un raté léger est sans conséquence." },
+  ],
+  m0l2: [
+    { t: 'pairs', p: [['108', 'Numéro de page'], ['9', 'Numéro du mot'], ['852', 'Exemple de nombre de départ'], ['Enveloppe', 'Posée dès le début']] },
+    { t: 'order', q: 'Remettez les étapes du calcul dans l’ordre', items: ['Trois chiffres décroissants', 'Retourner et soustraire', 'Retourner le résultat', 'Additionner les deux'] },
+    { t: 'tf', s: 'Il vaut mieux regarder l’écran du spectateur pendant qu’il calcule.', a: false, e: "Tournez-vous : votre distance rend l'effet impossible." },
+  ],
+  m0l3: [
+    { t: 'tf', s: 'Dans l’équivoque, on annonce dès le début si l’objet touché sera gardé ou éliminé.', a: false, e: "Jamais : c'est vous qui interprétez après coup." },
+    { t: 'pairs', p: [['Clé non touchée', '« On écarte ces deux-là »'], ['Il donne l’autre objet', '« Il vous reste la clé »'], ['Il donne la clé', '« Vous avez choisi celui-ci »'], ['À la fin', '« Soulevez mon verre »']] },
+  ],
+  m0l4: [
+    { t: 'order', q: 'Remettez votre mini-numéro dans l’ordre', items: ['Le 37', 'L’objet choisi d’avance', 'La prédiction du livre'] },
+    { t: 'fill', s: 'À la fin, même si on en redemande, il faut ___.', o: ['s’arrêter', 'tout expliquer', 'recommencer'], a: 0 },
+  ],
   m1l1: [
     { t: 'tf', s: 'Un mentaliste possède de vrais pouvoirs psychiques.', a: false, e: "Le mentalisme est un art du spectacle : méthodes, psychologie et mise en scène." },
     { t: 'pairs', p: [['Robert-Houdin', 'Seconde vue (France)'], ['Tony Corinda', '13 Steps to Mentalism'], ['Theodore Annemann', 'The Jinx'], ['Derren Brown', 'Tricks of the Mind']] },

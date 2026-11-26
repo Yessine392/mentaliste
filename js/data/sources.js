@@ -54,6 +54,10 @@ export const sources = {
 };
 
 export const lessonSources = {
+  m0l1: ['kubovy1976', 'olson2015', 'corinda1968'],
+  m0l2: ['annemann1944', 'kuhn2019'],
+  m0l3: ['corinda1968', 'kuhn2019'],
+  m0l4: ['brown2006', 'roediger2006'],
   m1l1: ['robertHoudin1858', 'corinda1968', 'annemann1944', 'brown2006'],
   m1l2: ['waters1993', 'kuhn2019'],
   m1l3: ['hyman1977', 'brown2006', 'randi1982'],

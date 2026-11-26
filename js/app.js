@@ -1,3 +1,4 @@
+import { part0 } from './data/curriculum0.js';
 import { part1 } from './data/curriculum1.js';
 import { part2 } from './data/curriculum2.js';
 import { part3 } from './data/curriculum3.js';
@@ -14,8 +15,8 @@ import { hearts, MAX_HEARTS, gainHeart, dailyGoal, todayXp, srsDue, srsStats, so
 import { playSession, buildLessonItems } from './player.js';
 
 // Ordre du chemin d'apprentissage (identique à celui du programme de 52 semaines)
-const ORDER = ['m1', 'm2', 'm3', 'm15', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm16', 'm17', 'm10', 'm11', 'm18', 'm19', 'm12', 'm13', 'm14', 'm20'];
-export const modules = [...part1, ...part2, ...part3].sort((a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id));
+const ORDER = ['m0', 'm2', 'm3', 'm15', 'm1', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm16', 'm17', 'm10', 'm11', 'm18', 'm19', 'm12', 'm13', 'm14', 'm20'];
+export const modules = [...part0, ...part1, ...part2, ...part3].sort((a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id));
 export const levels = [
   { n: 1, name: 'Débutant', sub: 'Fondations', color: '#34d399' },
   { n: 2, name: 'Apprenti', sub: 'Psychologie, observation, présence', color: '#22d3ee' },
