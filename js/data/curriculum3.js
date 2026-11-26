@@ -57,7 +57,7 @@ export const part3 = [
 <li>Avancer vers le public = intimité, confidence ; reculer = solennité, distance.</li>
 </ul>
 <h3>Le trac</h3>
-<p>Le trac est normal, même chez les professionnels. Techniques éprouvées : respiration lente (4 s inspiration, 6 s expiration), connaître sa première minute <em>par cœur</em>, arriver tôt pour s'approprier le lieu, et considérer l'adrénaline comme de l'énergie.</p>`,
+<p>Le trac est normal, même chez les professionnels. Ce qui a le plus de preuves : se dire « je suis excité » plutôt que « je dois me calmer » (Brooks, 2014). <span class="ev ev-s">Prouvé</span> La respiration lente (4 s inspiration, 6 s expiration) a des preuves plus modestes (Zaccaro et al., 2018). <span class="ev ev-d">Discuté</span> Ajoutez : connaître sa première minute <em>par cœur</em>, arriver tôt pour s'approprier le lieu, et considérer l'adrénaline comme de l'énergie.</p>`,
         keyPoints: ['Posture neutre, mouvements qui ont un sens.', 'Regard balayage, intense et dirigé.', 'Centre de la scène pour les révélations ; gérer le trac par la respiration et la préparation.'],
         exercise: "Filmez-vous en présentant un effet en entier, en plan large. Regardez la vidéo sans le son : votre corps raconte-t-il l'histoire ? Notez chaque geste parasite.",
         quiz: [
@@ -124,7 +124,7 @@ export const part3 = [
 <p>Ne dites jamais le mot d'un coup. Révélez d'abord des <strong>impressions</strong> (« Je vois quelque chose de froid... »), puis des lettres, puis le mot entier. Cela donne l'impression d'une vraie lecture, et permet d'utiliser la lecture à froid pour confirmer.</p>
 <div class="callout">📚 Exercice d'expert : mémorisez le premier mot de chaque page paire d'un petit livre de poche de 60 pages, avec le Système Majeur. Vous aurez un test du livre sans aucun accessoire truqué.</div>`,
         keyPoints: ['5 familles : forçage, livres préparés, coup d’œil, mémoire, lecture à froid.', 'Révélation progressive : impressions → lettres → mot.', 'La mémoire permet un test du livre avec un livre ordinaire.'],
-        exercise: "Préparez un test du livre avec le 1089 (page 108, ligne 9) dans un livre de votre bibliothèque. Écrivez une révélation progressive en 4 étapes.",
+        exercise: "Préparez un test du livre avec le 1089 (page 108, 9e mot) dans un livre de votre bibliothèque. Écrivez une révélation progressive en 4 étapes.",
         quiz: [
           { q: 'Quelle méthode permet d’utiliser un livre totalement ordinaire sans calcul ?', options: ['Livre préparé', 'Mémoire', 'Aucun', 'Écriture secrète'], answer: 1, explain: "La mémoire des mots clés du livre." },
           { q: 'Comment révéler le mot ?', options: ['D’un coup, vite', 'Progressivement : impressions, lettres, mot', 'En le lisant dans le livre', 'Par écrit uniquement'], answer: 1, explain: "La progression crée le drame et permet d'ajuster." },
@@ -179,7 +179,7 @@ export const part3 = [
 <li><strong>Choisir son spectateur</strong> : la personne la plus enthousiaste pour l'ouverture, la plus sceptique pour la fin (quand vous êtes sûr de votre effet).</li>
 <li><strong>Repérer le « sceptique bruyant »</strong> : impliquez-le comme témoin des conditions plutôt que comme volontaire principal. Il devient votre meilleur allié.</li>
 <li><strong>Lire le groupe</strong> : si les gens se regardent ou regardent leur téléphone, raccourcissez. Si l'un d'eux se penche en avant, choisissez-le.</li>
-<li><strong>Gérer l'échec</strong> : présentez l'expérience comme un <em>test</em> (« Ça marche environ 8 fois sur 10 »). Un échec devient crédible, et la réussite suivante plus forte.</li>
+<li><strong>Gérer l'échec</strong> : présentez l'expérience comme un <em>test</em> (« Ça ne marche pas à tous les coups »). Évitez d'annoncer un faux pourcentage comme s'il était scientifique : c'est une réplique du personnage, pas un chiffre. Un échec devient crédible, et la réussite suivante plus forte.</li>
 </ul>
 <h3>Les angles</h3>
 <p>Assis à une table, le danger vient des côtés et de derrière. Placez-vous dos à un mur ou face au groupe. Pour les coups d'œil, gardez les spectateurs en arc de cercle devant vous.</p>`,
@@ -187,7 +187,7 @@ export const part3 = [
         exercise: "Lors de votre prochaine présentation, notez avant de commencer qui vous choisirez pour chaque effet et pourquoi. Après coup, évaluez vos choix.",
         quiz: [
           { q: 'Que faire du sceptique bruyant ?', options: ['L’ignorer', 'En faire le témoin des conditions', 'Le choisir en premier', 'Arrêter le spectacle'], answer: 1, explain: "Il garantit l'honnêteté aux yeux des autres." },
-          { q: 'Annoncer « ça marche 8 fois sur 10 » permet…', options: ['De mentir', 'De rendre un échec crédible et la réussite plus forte', 'D’impressionner', 'De gagner du temps'], answer: 1, explain: "Le cadre expérimental protège le mentaliste." },
+          { q: 'Annoncer « ça ne marche pas à tous les coups » permet…', options: ['De mentir', 'De rendre un échec crédible et la réussite plus forte', 'D’impressionner', 'De gagner du temps'], answer: 1, explain: "Le cadre expérimental protège le mentaliste." },
         ],
       },
     ],

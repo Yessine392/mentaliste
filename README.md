@@ -6,17 +6,17 @@ Application web (PWA, installable et utilisable hors ligne) pour apprendre le **
 
 ## Une pédagogie de micro-leçons
 
-- **Leçons de 5 minutes** découpées en petites cartes, avec des exercices intercalés : QCM, vrai/faux, associer les paires, remettre dans l'ordre, compléter la phrase.
+- **Leçons de 5 minutes** découpées en petites cartes, avec des exercices intercalés : QCM, vrai/faux, associer les paires, remettre dans l'ordre, compléter la phrase, « Mythe ou réalité ? » (carte à glisser).
 - **Cœurs** (5, un perdu par erreur, rechargés avec le temps ou par l'entraînement ; mode zen possible), **combos**, **sons**, **objectif quotidien**, **série de jours** avec gel de série, **succès** et une mascotte 🔮.
 - **Chemin d'apprentissage** visuel : les leçons se débloquent une par une.
 - **Entraînement intelligent** : répétition espacée (boîtes de Leitner) sur vos points faibles. Les erreurs d'une leçon reviennent à la fin de la session.
-- **Sources** : chaque leçon cite ses références (40 études scientifiques et ouvrages de référence, page « Sources et méthode »).
+- **Sources** : chaque leçon cite ses références (54 études scientifiques et ouvrages de référence, page « Sources et méthode »). Les affirmations clés portent un **badge de preuve** : Prouvé, Discuté, Savoir de praticien ou Mythe.
 
 ## Contenu
 
 **Programme de formation de 52 semaines** : 5 phases, une pratique quotidienne guidée (20 à 35 min), un défi concret chaque semaine et 6 jalons de représentation, jusqu'à un spectacle de 30 minutes en semaine 52.
 
-**Parcours en 5 niveaux, 21 unités, 49 leçons, plus de 200 exercices**
+**Parcours en 5 niveaux, 21 unités, 50 leçons, plus de 200 exercices**
 
 | Niveau | Thèmes |
 |---|---|
@@ -28,8 +28,8 @@ Application web (PWA, installable et utilisable hors ligne) pour apprendre le **
 
 Chaque leçon contient : cours, points clés, exercice pratique et quiz (70 % pour valider). Les niveaux se débloquent progressivement (option « tout débloquer » dans Réglages).
 
-**Labo : 12 outils d'entraînement interactifs**
-Lecture flash (coup d'œil) · Codes de seconde vue · Système Majeur · Palais de mémoire · Micro-expressions (mode flash) · Lecture à froid (identifier les techniques + générateur de lecture) · Calendrier mental · Carré magique · Racines cubiques · Si Stebbins · Carnet de forçages psychologiques (vos statistiques réelles) · Journal du mentaliste.
+**Labo : 13 outils d'entraînement interactifs**
+Réflexe sorties (6 secondes pour trouver la bonne réplique quand un effet rate) · Lecture flash (coup d'œil) · Codes de seconde vue · Système Majeur · Palais de mémoire · Micro-expressions (mode flash) · Lecture à froid (identifier les techniques + générateur de lecture) · Calendrier mental · Carré magique · Racines cubiques · Si Stebbins · Carnet de forçages psychologiques (vos statistiques réelles, comparées au hasard) · Journal du mentaliste.
 
 **Aussi** : XP, rangs, série de jours, révision express, glossaire multilingue (FR/EN/DE/ES), bibliothèque internationale par niveau, sauvegarde/import de la progression.
 

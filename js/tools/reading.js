@@ -114,9 +114,9 @@ export const coldTool = {
 
 // ---------- Carnet de forçages psychologiques ----------
 const POLLS = [
-  { id: 'n10', q: 'Pensez à un nombre entre 1 et 10.', expected: '7 (puis 3)', placeholder: 'ex. 7' },
-  { id: 'n50', q: 'Un nombre entre 1 et 50, deux chiffres impairs et différents.', expected: '37 (puis 35)', placeholder: 'ex. 37' },
-  { id: 'n100', q: 'Un nombre entre 1 et 100.', expected: 'souvent 37 ou 73, et des nombres « culturels » comme 42', placeholder: 'ex. 42' },
+  { id: 'n10', q: 'Pensez à un nombre entre 1 et 10.', expected: '7 (puis 3)', target: '7', chance: 10, placeholder: 'ex. 7' },
+  { id: 'n50', q: 'Un nombre entre 1 et 50, deux chiffres impairs et différents.', expected: '37 (puis 35), selon le métier', target: '37', chance: 14, placeholder: 'ex. 37' },
+  { id: 'n100', q: 'Un nombre entre 1 et 100.', expected: 'tradition du métier : 37, 73, 42… à vérifier avec vos propres données', placeholder: 'ex. 42' },
   { id: 'shape', q: 'Une forme géométrique simple, et une autre à l’intérieur.', expected: 'cercle dans un triangle', placeholder: 'ex. cercle dans triangle' },
   { id: 'color', q: 'Pensez à une couleur.', expected: 'rouge ou bleu', placeholder: 'ex. rouge' },
   { id: 'flower', q: 'Pensez à une fleur.', expected: 'rose', placeholder: 'ex. rose' },
@@ -141,7 +141,7 @@ export const pollTool = {
       answers.forEach((a) => (counts[a] = (counts[a] || 0) + 1));
       const top = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 8);
       const max = top[0]?.[1] || 1;
-      el.innerHTML = `<button class="btn ghost" id="bk">← Retour</button><section class="card"><h3>${esc(p.q)}</h3><p class="muted small">Réponse statistiquement attendue : <strong>${esc(p.expected)}</strong></p>
+      el.innerHTML = `<button class="btn ghost" id="bk">← Retour</button><section class="card"><h3>${esc(p.q)}</h3><p class="muted small">Réponse attendue : <strong>${esc(p.expected)}</strong></p>${p.target ? `<div class="vs-chance"><div><b>${answers.length ? Math.round(((counts[p.target] || 0) / answers.length) * 100) : '–'} %</b><span>vos « ${esc(p.target)} »</span></div><div><b>${p.chance} %</b><span>au hasard</span></div></div><p class="muted small">${answers.length < 20 ? `Encore ${20 - answers.length} réponse${20 - answers.length > 1 ? 's' : ''} avant que votre taux veuille dire quelque chose.` : (counts[p.target] || 0) / answers.length > p.chance / 100 * 1.5 ? 'Votre forçage fait nettement mieux que le hasard.' : 'Pas encore nettement au-dessus du hasard : travaillez le ton et le texte.'}</p>` : ''}
         <form id="f" class="row"><input class="input" id="a" placeholder="${esc(p.placeholder)}" autocomplete="off"><button class="btn primary">Ajouter</button></form></section>
         <section class="card"><h3>Vos résultats (${answers.length})</h3>${top.length ? top.map(([k, v]) => `<div class="hbar"><span>${esc(k)}</span><div class="bar"><span style="width:${(v / max) * 100}%"></span></div><b>${Math.round((v / answers.length) * 100)} %</b></div>`).join('') : '<p class="muted small">Aucune réponse encore.</p>'}
         ${answers.length ? '<button class="btn ghost small" id="clr">Effacer ces résultats</button>' : ''}</section>`;

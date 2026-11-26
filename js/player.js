@@ -93,6 +93,27 @@ function renderEx(ex, body, ui) {
     ui.ready(false, true);
     return { check: () => ({ ok: errors === 0, answer: errors ? `${errors} erreur${errors > 1 ? 's' : ''} d'association` : '', explain: ex.e }), lock: () => {} };
   }
+  if (t === 'myth') {
+    body.innerHTML = `<div class="ex-kind">Mythe ou réalité ?</div>
+      <div class="myth-card" tabindex="0"><span class="myth-hint l">🔴 Mythe</span><span class="myth-hint r">🟢 Réalité</span><p>${esc(ex.s)}</p></div>
+      <p class="muted small center">Glissez la carte, ou touchez un bouton</p>
+      <div class="tf"><button class="choice big" data-v="0">🔴 Mythe</button><button class="choice big" data-v="1">🟢 Réalité</button></div>`;
+    let sel = null;
+    const card = body.querySelector('.myth-card');
+    const pick = (v, swiped) => {
+      sel = v; sound('tap');
+      body.querySelectorAll('.choice').forEach((x) => x.classList.toggle('sel', (x.dataset.v === '1') === v));
+      if (swiped) { card.classList.add(v ? 'gone-r' : 'gone-l'); ui.ready(true, true); setTimeout(() => ui.auto(), 280); } else ui.ready(true);
+    };
+    body.querySelectorAll('.choice').forEach((b) => (b.onclick = () => pick(b.dataset.v === '1')));
+    let x0 = null, dx = 0;
+    card.addEventListener('pointerdown', (e) => { if (sel != null && card.classList.contains('locked')) return; x0 = e.clientX; dx = 0; card.setPointerCapture(e.pointerId); card.style.transition = 'none'; });
+    card.addEventListener('pointermove', (e) => { if (x0 == null) return; dx = e.clientX - x0; card.style.transform = `translateX(${dx}px) rotate(${dx / 18}deg)`; card.classList.toggle('lean-l', dx < -30); card.classList.toggle('lean-r', dx > 30); });
+    const end = () => { if (x0 == null) return; x0 = null; card.style.transition = ''; card.style.transform = ''; card.classList.remove('lean-l', 'lean-r'); if (Math.abs(dx) > 90) pick(dx > 0, true); };
+    card.addEventListener('pointerup', end); card.addEventListener('pointercancel', end);
+    const label = ex.a ? 'Réalité' : 'Mythe';
+    return { check: () => ({ ok: sel === ex.a, answer: label, explain: ex.e + (ex.src ? ` (${ex.src})` : '') }), lock: () => { card.classList.add('locked'); body.querySelectorAll('.choice').forEach((b) => { b.disabled = true; if ((b.dataset.v === '1') === ex.a) b.classList.add('right'); else if (b.classList.contains('sel')) b.classList.add('wrong'); }); } };
+  }
   body.innerHTML = '<p>Exercice inconnu.</p>';
   return { check: () => ({ ok: true }), lock: () => {} };
 }

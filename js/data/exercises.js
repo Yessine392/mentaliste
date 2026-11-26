@@ -15,6 +15,11 @@ export const exercises = {
     { t: 'tf', s: 'Dans l’équivoque, on annonce dès le début si l’objet touché sera gardé ou éliminé.', a: false, e: "Jamais : c'est vous qui interprétez après coup." },
     { t: 'pairs', p: [['Clé non touchée', '« On écarte ces deux-là »'], ['Il donne l’autre objet', '« Il vous reste la clé »'], ['Il donne la clé', '« Vous avez choisi celui-ci »'], ['À la fin', '« Soulevez mon verre »']] },
   ],
+  m0l5: [
+    { t: 'pairs', p: [['37', '« Dépliez le papier »'], ['35', 'Montrer le téléphone'], ['19', '« Gardez ce nombre en tête »'], ['42', '« Vous ne suivez pas les règles ! »']] },
+    { t: 'tf', s: 'Il vaut mieux montrer la prédiction avant que le spectateur dise son nombre.', a: false, e: "Faites toujours dire la réponse d'abord : tant que le papier est plié, rien n'a raté." },
+    { t: 'fill', s: 'Après un raté, on ne rejette jamais la ___ sur le spectateur.', o: ['faute', 'balle', 'carte'], a: 0 },
+  ],
   m0l4: [
     { t: 'order', q: 'Remettez votre mini-numéro dans l’ordre', items: ['Le 37', 'L’objet choisi d’avance', 'La prédiction du livre'] },
     { t: 'fill', s: 'À la fin, même si on en redemande, il faut ___.', o: ['s’arrêter', 'tout expliquer', 'recommencer'], a: 0 },
@@ -35,7 +40,7 @@ export const exercises = {
     { t: 'tf', s: 'On peut démystifier les escrocs tout en protégeant les secrets du métier.', a: true, e: "C'est la position de nombreux mentalistes sceptiques." },
   ],
   m2l1: [
-    { t: 'fill', s: "« Entre 1 et 50, deux chiffres impairs différents » : la réponse la plus fréquente est ___.", o: ['37', '13', '49'], a: 0, e: "Puis 35. Toujours prévoir une sortie." },
+    { t: 'fill', s: "« Entre 1 et 50, deux chiffres impairs différents » : la réponse la plus fréquente selon les mentalistes est ___.", o: ['37', '13', '49'], a: 0, e: "Puis 35. Ça marche souvent, pas toujours : prévoyez une sortie." },
     { t: 'tf', s: 'Dans l’équivoque, on annonce à l’avance ce que signifie le choix du spectateur.', a: false, e: "Justement non : on interprète le choix après coup." },
     { t: 'pairs', p: [['Équivoque', 'Interpréter le choix'], ['Coupe croisée', 'Délai qui brouille le souvenir'], ['Forçage psychologique', 'Choix statistiquement probable'], ['Sortie', 'Plan B prévu']] },
   ],
@@ -61,23 +66,32 @@ export const exercises = {
     { t: 'fill', s: "Faire dire « c'est mon libre choix » à voix haute utilise l'___.", o: ['engagement', 'unité', 'autorité'], a: 0, e: "Le spectateur défendra ensuite ce qu'il a affirmé." },
   ],
   m4l2: [
+    { t: 'myth', s: 'On peut ne pas voir un gorille… en le regardant droit dans les yeux.', a: true, e: "Le suivi du regard montre que certains fixent le gorille sans le voir.", src: 'Memmert, 2006' },
+    { t: 'myth', s: 'La plupart des gens remarquent tout de suite qu’on a échangé la photo qu’ils ont choisie.', a: false, e: "Seuls environ 13 % des échanges sont repérés sur le moment.", src: 'Johansson et al., 2005' },
     { t: 'pairs', p: [['Forer (1949)', 'Effet Barnum'], ['Loftus', 'Faux souvenirs'], ['Johansson et Hall', 'Cécité au choix'], ['Simons et Chabris', 'Gorille invisible']] },
     { t: 'tf', s: 'Le résumé final des conditions peut modifier le souvenir du spectateur.', a: true, e: "La mémoire est reconstructive." },
     { t: 'tf', s: "Dans l'étude de Forer, chaque étudiant avait reçu une analyse différente.", a: false, e: "Tous avaient reçu le même texte." },
   ],
   m4l3: [
+    { t: 'myth', s: 'La PNL permet de savoir si quelqu’un ment selon la direction de son regard.', a: false, e: "Testé directement : aucun lien entre direction du regard et mensonge.", src: 'Wiseman et al., 2012' },
     { t: 'tf', s: 'Les études scientifiques ont validé les modèles principaux de la PNL.', a: false, e: "Les revues de la littérature ne les ont pas confirmés." },
     { t: 'fill', s: "« Quand vous aurez choisi… » est une ___.", o: ['présupposition', 'équivoque', 'flatterie'], a: 0, e: "La phrase tient pour acquis que le choix aura lieu." },
   ],
   m5l1: [
+    { t: 'myth', s: 'Des bras croisés veulent toujours dire qu’une personne est fermée.', a: false, e: "Aucun geste n'a de sens fixe : froid, confort, habitude…", src: 'DePaulo et al., 2003' },
     { t: 'order', q: 'Remettez la méthode d’observation dans l’ordre', items: ['Établir la ligne de base', 'Repérer un changement', 'Chercher une grappe de signes', 'Vérifier le contexte'] },
     { t: 'tf', s: 'Des bras croisés signifient toujours que la personne est fermée.', a: false, e: "Il fait peut-être froid ! Contexte et grappes d'abord." },
   ],
   m5l2: [
+    { t: 'myth', s: 'Les micro-expressions sont fréquentes et trahissent les menteurs.', a: false, e: "Elles sont rares (environ 2 % des expressions) et apparaissent aussi chez les personnes sincères.", src: 'Porter et ten Brinke, 2008' },
+    { t: 'myth', s: 'Certaines expressions du visage sont reconnues dans de nombreuses cultures.', a: true, e: "C'est bien établi pour les émotions de base, même si l'universalité exacte est débattue.", src: 'Ekman et Friesen, 1971 ; Barrett et al., 2019' },
+    { t: 'myth', s: 'Un sourire avec des pattes d’oie est forcément sincère.', a: false, e: "Le sourire de Duchenne peut aussi être produit volontairement.", src: 'Krumhuber et Manstead, 2009' },
     { t: 'pairs', p: [['Un coin de lèvre relevé', 'Mépris'], ['Nez plissé', 'Dégoût'], ['Sourcils en arc, bouche ouverte', 'Surprise'], ['Pattes d’oie + sourire', 'Joie']] },
     { t: 'tf', s: 'Une micro-expression de peur prouve que la personne ment.', a: false, e: "Elle indique une émotion, pas sa cause." },
   ],
   m5l3: [
+    { t: 'myth', s: 'Les gens détectent le mensonge à peine mieux que le hasard.', a: true, e: "Environ 54 % de réussite en moyenne, pour 50 % au hasard.", src: 'Bond et DePaulo, 2006' },
+    { t: 'myth', s: 'Un menteur évite le regard.', a: false, e: "Pratiquement aucun lien entre regard fuyant et mensonge.", src: 'DePaulo et al., 2003' },
     { t: 'fill', s: 'Les humains détectent le mensonge dans environ ___ des cas.', o: ['54 %', '80 %', '95 %'], a: 0, e: "Bond & DePaulo, 2006 : à peine mieux que le hasard." },
     { t: 'tf', s: 'Regarder en haut à droite est un signe fiable de mensonge.', a: false, e: "Wiseman et al. (2012) n'ont trouvé aucun lien." },
   ],
@@ -140,7 +154,8 @@ export const exercises = {
     { t: 'pairs', p: [['Juan Tamariz', 'Mnemonica'], ['Simon Aronson', 'Aronson stack'], ['Si Stebbins', 'Ordre cyclique +3'], ['Système Majeur', 'Images de positions']] },
   ],
   m12l1: [
-    { t: 'tf', s: 'Sous hypnose, on peut forcer quelqu’un à agir contre ses valeurs profondes.', a: false },
+    { t: 'myth', s: 'Un spectacle d’hypnose est sans aucun risque pour les volontaires.', a: false, e: "Des malaises après le spectacle sont rares mais documentés. Prévoyez exclusions et retrait des suggestions.", src: 'Heap, 2000' },
+    { t: 'tf', s: 'Puisqu’on ne peut pas forcer quelqu’un sous hypnose, un spectacle d’hypnose est sans risque.', a: false, e: "L'hypnose ne supprime pas le contrôle, mais la pression de la scène et de rares malaises après le spectacle existent (Heap, 2000)." },
     { t: 'tf', s: 'Il faut toujours retirer toutes les suggestions à la fin.', a: true },
     { t: 'pairs', p: [['Mains collées', 'Test de suggestibilité'], ['Sarbin, Barber, Spanos', 'Théories socio-cognitives'], ['Hypnotism Act 1952', 'Royaume-Uni'], ['Pendule de Chevreul', 'Idéomoteur']] },
   ],
@@ -157,6 +172,7 @@ export const exercises = {
     { t: 'tf', s: 'On peut reprendre le numéro d’un autre artiste sans le créditer.', a: false },
   ],
   m14l2: [
+    { t: 'myth', s: 'Annoncer qu’on est magicien suffit à empêcher le public de croire aux pouvoirs paranormaux.', a: false, e: "Beaucoup de spectateurs croient à un vrai pouvoir même après l'avertissement.", src: 'Benassi et al., 1980' },
     { t: 'pairs', p: [['Projet Alpha', 'Banachek et Edwards'], ['Peter Popoff', 'Démasqué par Randi'], ['Gérard Majax', 'Démystification en France'], ['Houdini', 'Médiums spirites']] },
     { t: 'fill', s: 'Une affirmation extraordinaire demande des preuves ___.', o: ['extraordinaires', 'rapides', 'gratuites'], a: 0 },
   ],
@@ -165,6 +181,7 @@ export const exercises = {
     { t: 'fill', s: 'Avant une révélation, un silence de ___ secondes crée la tension.', o: ['2 à 4', '0', '30'], a: 0 },
   ],
   m15l2: [
+    { t: 'myth', s: 'Se dire « je suis excité » aide plus que « je dois me calmer » avant de monter sur scène.', a: true, e: "Requalifier le trac en excitation améliore la performance.", src: 'Brooks, 2014' },
     { t: 'pairs', p: [['Regard balayage', 'Tout le public'], ['Regard intense', 'Le volontaire'], ['Regard dirigé', 'Orienter l’attention'], ['Centre de scène', 'Moments forts']] },
     { t: 'tf', s: 'Même les professionnels ont le trac.', a: true, e: "On le gère par la respiration et la préparation." },
   ],

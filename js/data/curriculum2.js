@@ -24,7 +24,7 @@ export const part2 = [
 <li><strong>Morceaux de sucre</strong> (<em>sugar lumps</em>) : récompenser verbalement la personne quand elle donne des informations, pour l'encourager à en donner plus.</li>
 </ul>
 <h3>Statistiques et probabilités</h3>
-<p>Certains énoncés sont vrais pour une majorité : avoir une cicatrice au genou, une boîte de vieilles photos jamais triées, un bijou d'un proche décédé, un nom commençant par une lettre courante dans l'entourage, etc.</p>
+<p>Certains énoncés sont <em>réputés</em> vrais pour beaucoup de gens <span class="ev ev-p">Praticien</span> (c'est un savoir du métier, recensé par Ian Rowland, pas une statistique mesurée) : avoir une cicatrice au genou, une boîte de vieilles photos jamais triées, un bijou d'un proche décédé, un nom commençant par une lettre courante dans l'entourage, etc.</p>
 <p>👉 Entraînez-vous avec l'outil <strong>Lecture à froid</strong> du Labo.</p>`,
         keyPoints: ['Barnum, arc-en-ciel, Jacques, flatterie fine, fait flou, négation qui disparaît, pêche, morceaux de sucre.', 'Le sujet fournit lui-même les détails.', 'Les énoncés statistiques augmentent le taux de réussite.'],
         exercise: "Écrivez 10 énoncés : 2 Barnum, 2 arc-en-ciel, 2 Jacques (pour deux âges différents), 2 faits flous et 2 négations qui disparaissent. Puis classez des énoncés dans l'outil Lecture à froid.",
@@ -135,7 +135,7 @@ export const part2 = [
 <li>Pensez intensément « avant-arrière » sans bouger volontairement.</li>
 <li>Après quelques secondes, le pendule oscille dans cette direction. Pensez « cercle »... il tourne.</li>
 </ol>
-<p>Sur scène, ce petit test sert aussi à repérer les volontaires les plus réceptifs aux suggestions.</p>`,
+<p>Sur scène, ce petit test donne une première idée des volontaires réceptifs. Ce n'est pas une mesure validée : les chercheurs utilisent des échelles standardisées comme celle de Harvard (Shor et Orne, 1962).</p>`,
         keyPoints: ['Pensée → micro-mouvement involontaire.', 'Carpenter (1852), Chevreul, Faraday (1853).', 'Explique pendule, Ouija, sourciers.'],
         exercise: "Faites l'expérience du pendule de Chevreul sur vous-même puis sur 3 personnes. Notez qui réagit le plus vite.",
         quiz: [
@@ -340,7 +340,7 @@ export const part2 = [
 <li><strong>Théories de l'état</strong> : l'hypnose serait un état de conscience particulier (concentration intense, dissociation).</li>
 <li><strong>Théories socio-cognitives</strong> (Theodore Sarbin, Theodore Barber, Nicholas Spanos) : les effets s'expliquent par les attentes, l'imagination, la motivation et le rôle social du « sujet hypnotisé ».</li>
 </ul>
-<p>Le consensus actuel : les suggestions produisent des expériences <strong>réellement vécues</strong> par les sujets, la <strong>suggestibilité</strong> varie beaucoup d'une personne à l'autre, et personne ne peut être forcé à agir contre ses valeurs profondes.</p>
+<p>Le consensus actuel : les suggestions produisent des expériences <strong>réellement vécues</strong> par les sujets, la <strong>suggestibilité</strong> varie beaucoup d'une personne à l'autre, et l'hypnose ne supprime pas le contrôle de soi. Mais attention : la <strong>pression sociale de la scène</strong> peut pousser quelqu'un à faire ce qu'il regrettera, et des malaises après un spectacle (maux de tête, angoisse) sont rares mais documentés (Heap, 2000). Ne comptez jamais sur « on ne peut pas forcer quelqu'un » pour garantir la sécurité.</p>
 <h3>Hypnose de spectacle</h3>
 <p>Sur scène, l'hypnotiseur combine : sélection des sujets les plus suggestibles, pression sociale de la scène, attentes du public, et techniques de suggestion progressive. Les tests de suggestibilité classiques :</p>
 <ul>
@@ -464,8 +464,8 @@ export const part2 = [
 <p>Le mentaliste connaît mieux que quiconque les méthodes de la fraude. Beaucoup ont mis ce savoir au service de la vérité.</p>
 <ul>
 <li><strong>Harry Houdini</strong> (années 1920) a démasqué de nombreux médiums spirites.</li>
-<li><strong>James Randi</strong> a démasqué Peter Popoff et proposé pendant des décennies un prix d'un million de dollars à quiconque prouverait un pouvoir paranormal sous conditions contrôlées. Personne ne l'a jamais remporté.</li>
-<li>Le <strong>Projet Alpha</strong> (1979-1983) : Randi envoie deux jeunes magiciens, <strong>Steve Shaw (Banachek)</strong> et Michael Edwards, dans un laboratoire de parapsychologie de l'université Washington à Saint-Louis. Les chercheurs les déclarent dotés de pouvoirs réels... Les jeunes utilisaient de simples techniques de magie. Une leçon sur l'importance des protocoles.</li>
+<li><strong>James Randi</strong> a démasqué Peter Popoff et proposé de 1964 à 2015 un prix (1 000 $ au départ, un million de dollars à partir de 1996) à quiconque prouverait un pouvoir paranormal sous conditions contrôlées. Personne ne l'a jamais remporté.</li>
+<li>Le <strong>Projet Alpha</strong> (1979-1983) : Randi envoie deux jeunes magiciens, <strong>Steve Shaw (Banachek)</strong> et Michael Edwards, dans un laboratoire de parapsychologie de l'université Washington à Saint-Louis. Les chercheurs présentent leurs résultats comme « prometteurs » dans des congrès, sans publication formelle, puis resserrent leurs contrôles. Les jeunes utilisaient de simples techniques de magie. Une leçon sur l'importance des protocoles.</li>
 <li>En France, <strong>Gérard Majax</strong> a reproduit à la télévision les « miracles » de prétendus médiums et plieurs de cuillères.</li>
 <li>Au Royaume-Uni, <strong>Derren Brown</strong> a réalisé plusieurs émissions démontrant comment fonctionnent les faux guérisseurs et faux médiums.</li>
 </ul>

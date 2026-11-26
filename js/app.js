@@ -619,6 +619,19 @@ function route() {
 }
 
 window.addEventListener('hashchange', route);
+// Badges de niveau de preuve : un toucher explique le badge
+const EV_HELP = {
+  'ev-s': 'Prouvé : établi par plusieurs études publiées.',
+  'ev-d': 'Discuté : des études existent, mais les chercheurs ne sont pas d’accord.',
+  'ev-p': 'Savoir de praticien : transmis par le métier, jamais vraiment testé.',
+  'ev-m': 'Mythe : contredit par les études.',
+};
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('.ev');
+  if (!b) return;
+  const k = Object.keys(EV_HELP).find((c) => b.classList.contains(c));
+  if (k) toast(EV_HELP[k], 3200);
+});
 initSpotlight();
 initReadProgress();
 route();

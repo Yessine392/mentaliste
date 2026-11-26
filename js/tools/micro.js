@@ -36,12 +36,12 @@ export function face(key) {
 
 export const microTool = {
   id: 'micro', name: 'Micro-expressions', icon: '😶', level: 2,
-  desc: 'Reconnaître les 7 émotions en un éclair',
+  desc: 'Reconnaître les émotions de base en un éclair',
   mount(el, ctx) {
     const keys = Object.keys(EMOTIONS);
     const home = () => {
       const s = ctx.stats();
-      el.innerHTML = `<section class="card"><p>Les 7 émotions de base décrites par Paul Ekman. Étudiez-les, puis entraînez votre œil en mode flash : l'émotion n'apparaît qu'une fraction de seconde.</p>
+      el.innerHTML = `<section class="card"><p>Les 6 émotions de base décrites par Paul Ekman en 1971, plus le mépris (ajouté en 1986, le plus discuté). Ce sont des indices, jamais des preuves. Étudiez-les, puis entraînez votre œil en mode flash : l'émotion n'apparaît qu'une fraction de seconde.</p>
         <button class="btn ghost block" id="study">📖 Étudier les 7 visages</button>
         <label class="field">Durée du flash <select id="ms" class="input"><option value="1000">1 seconde (débutant)</option><option value="500" selected>0,5 seconde</option><option value="250">0,25 seconde</option><option value="120">0,12 seconde (expert)</option></select></label>
         <button class="btn primary block" id="go">Lancer 15 flashs</button>

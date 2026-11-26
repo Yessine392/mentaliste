@@ -91,7 +91,7 @@ export const part1 = [
 <li>Je n'utilise pas les techniques d'influence pour manipuler dans la vie privée ou professionnelle.</li>
 <li>Je protège les secrets du métier, mais je n'hésite pas à démystifier les escrocs.</li>
 </ol>
-<div class="callout warn">⚠️ Le psychologue <strong>Ray Hyman</strong> raconte qu'en lisant les lignes de la main pour gagner de l'argent, il a fini par croire lui-même à ses lectures, tant les gens les confirmaient. C'est la preuve que la lecture à froid fonctionne… même sur celui qui la pratique.</div>`,
+<div class="callout warn">⚠️ Le psychologue <strong>Ray Hyman</strong> raconte qu'en lisant les lignes de la main pour gagner de l'argent, il a fini par croire lui-même à ses lectures, tant les gens les confirmaient. C'est un témoignage, pas une preuve, mais il illustre bien ce que les expériences de Forer (1949) ont mesuré : on trouve « juste » ce qui est vague et flatteur… même quand on est celui qui le dit.</div>`,
         keyPoints: ['Les techniques du mentaliste sont aussi celles des escrocs.', 'Affirmer de vrais pouvoirs pour de l’argent est une ligne rouge.', 'Respect, consentement et bienveillance envers les volontaires.'],
         exercise: "Rédigez votre propre « disclaimer » de spectacle en 2 ou 3 phrases, que vous pourriez dire au début d'une prestation, avec votre style personnel.",
         quiz: [
@@ -121,12 +121,12 @@ export const part1 = [
 </ul>
 <p>La clé : ne jamais annoncer à l'avance ce que signifie le choix, et parler avec assurance.</p>
 <h3>2. Le forçage par coupe croisée (<em>cross-cut force</em>)</h3>
-<p>La carte à forcer est sur le dessus du paquet. Le spectateur coupe et pose la moitié inférieure en croix sur l'autre. Vous parlez quelques secondes (délai = détournement temporel), puis vous soulevez le paquet du dessus : la carte « à laquelle il a coupé » est… votre carte de départ.</p>
+<p>La carte à forcer est sur le dessus du paquet. Le spectateur coupe et pose la moitié inférieure en croix sur l'autre. Vous parlez quelques secondes (délai = détournement temporel), puis vous soulevez la moitié posée en croix et vous demandez au spectateur de <strong>prendre lui-même</strong> la carte du dessus de la moitié du bas, « celle où il a coupé ». C'est votre carte de départ. Le délai est essentiel : sans lui, le spectateur reconstitue la procédure.</p>
 <h3>3. Les forçages psychologiques</h3>
 <p>Certains choix sont statistiquement prévisibles (ils <strong>ne marchent pas à 100 %</strong>) :</p>
 <ul>
-<li>« Un nombre entre 1 et 10 » : le 7 et le 3 sont très fréquents.</li>
-<li>« Un nombre à deux chiffres entre 1 et 50, les deux chiffres impairs et différents » : le 37 sort très souvent (puis le 35).</li>
+<li>« Un chiffre entre 0 et 9 » : le 7 est choisi par environ 28 % des gens, alors que le hasard donnerait 10 % (Kubovy et Psotka, 1976). <span class="ev ev-s">Prouvé</span></li>
+<li>« Un nombre à deux chiffres entre 1 et 50, les deux chiffres impairs et différents » : d'après l'expérience des mentalistes, le 37 sort souvent (puis le 35). <span class="ev ev-p">Praticien</span> C'est un savoir de praticien, pas un résultat publié.</li>
 <li>« Une forme géométrique simple, et une autre à l'intérieur » : cercle dans un triangle est fréquent.</li>
 </ul>
 <div class="callout">🎯 Principe des <strong>sorties</strong> (<em>outs</em>) : un forçage psychologique doit toujours avoir un plan B. Exemple : vous avez écrit « 37 » d'un côté d'une carte et « 35 » ailleurs. Le public ne voit que la réussite.</div>`,
@@ -136,7 +136,7 @@ export const part1 = [
           { q: "Quel est l'autre nom de l'équivoque ?", options: ['Le coup d’avance', 'Le choix du magicien', 'Le Swami', 'La lecture musculaire'], answer: 1, explain: "Equivoque = magician's choice = choix du magicien." },
           { q: "Dans le forçage par coupe croisée, pourquoi parler avant de révéler ?", options: ['Pour gagner du temps', 'Pour que le spectateur oublie la position réelle des paquets (détournement temporel)', 'Pour hypnotiser', 'Ce n’est pas utile'], answer: 1, explain: "Le délai brouille le souvenir de la procédure." },
           { q: "Un forçage psychologique fonctionne…", options: ['À 100 %', 'Souvent, mais il faut prévoir des sorties', 'Jamais', 'Seulement sous hypnose'], answer: 1, explain: "Ce sont des probabilités, pas des certitudes." },
-          { q: "« Entre 1 et 50, deux chiffres impairs et différents » : quelle réponse est la plus fréquente ?", options: ['13', '37', '19', '45'], answer: 1, explain: "Le 37 est la réponse la plus courante, suivi du 35." },
+          { q: "« Entre 1 et 50, deux chiffres impairs et différents » : quelle réponse est la plus fréquente ?", options: ['13', '37', '19', '45'], answer: 1, explain: "D'après l'expérience des mentalistes, 37 sort le plus souvent, puis 35. Ce n'est pas mesuré par une étude publiée : testez-le avec le Carnet de forçages." },
         ],
       },
       {
@@ -147,14 +147,14 @@ export const part1 = [
 <p>Le <strong>principe du coup d'avance</strong> (<em>one-ahead principle</em>) est un classique. Vous obtenez une information, mais vous faites croire que vous devinez la suivante. Vous avez toujours une information « d'avance ».</p>
 <h3>Exemple avec des billets</h3>
 <ol>
-<li>Trois spectateurs écrivent chacun une pensée sur un papier, plié et mélangé dans un bol. L'un des billets est en réalité écrit par un complice ou est un billet que vous connaissez (par exemple vous avez forcé son contenu).</li>
-<li>Vous prenez un billet sans l'ouvrir, le portez à votre front et « devinez » le billet <strong>connu</strong>.</li>
+<li>Trois spectateurs écrivent chacun une pensée sur un papier, plié et mélangé dans un bol. Vous ajoutez vous-même un billet <strong>dont vous connaissez le contenu</strong> (par exemple un nombre que vous avez forcé, ou une question que vous avez écrite « pour montrer l'exemple »). Pliez-le d'une façon reconnaissable : en quatre au lieu de deux, ou un coin corné. Vous le laisserez dans le bol jusqu'à la fin.</li>
+<li>Vous prenez un <strong>autre</strong> billet sans l'ouvrir, le portez à votre front et annoncez le contenu du billet <strong>connu</strong>.</li>
 <li>Vous ouvrez le billet pour « vérifier » : vous lisez en réalité un nouveau contenu, que vous mémorisez en disant « Oui ! »</li>
 <li>Vous prenez le billet suivant et annoncez ce que vous venez de lire. Et ainsi de suite.</li>
 </ol>
 <p>Ce principe est le cœur des numéros historiques de type « questions-réponses » (<em>Q&amp;A act</em>), et sa version comique est le sketch « Carnac le Magnifique » de Johnny Carson.</p>
-<div class="callout">🧠 Le dernier billet doit être celui que vous connaissiez dès le début. Préparez l'ordre de vos révélations pour que le plus fort arrive à la fin.</div>`,
-        keyPoints: ['Chaque « vérification » vous donne la prochaine information.', 'Il faut un premier élément connu (forcé, complice ou indice).', 'Le principe est discret car le spectateur ne pense pas à la chronologie.'],
+<div class="callout">🧠 Le dernier billet que vous prenez doit être le billet reconnaissable : vous l'ouvrez pour « vérifier » le dernier contenu annoncé, et c'est fini. Évitez les complices au début : ils créent une dépendance et un risque d'être découvert. Préparez l'ordre de vos révélations pour que le plus fort arrive à la fin.</div>`,
+        keyPoints: ['Chaque « vérification » vous donne la prochaine information.', 'Il faut un billet connu, reconnaissable, gardé pour la fin.', 'Le principe est discret car le spectateur ne pense pas à la chronologie.'],
         exercise: "Avec 5 papiers que vous écrivez vous-même, pratiquez la routine du coup d'avance devant un miroir jusqu'à pouvoir lire d'un coup d'œil sans hésiter.",
         quiz: [
           { q: "De quoi avez-vous besoin pour démarrer un coup d'avance ?", options: ['De rien', "D'une première information déjà connue", "D'un pendule", "D'un public nombreux"], answer: 1, explain: "Le premier billet « deviné » doit être connu par un autre moyen." },
@@ -262,7 +262,7 @@ export const part1 = [
         title: "Les principes d'influence",
         duration: 14,
         content: `
-<p>Le psychologue <strong>Robert Cialdini</strong> (<em>Influence</em>, 1984) a identifié des principes universels qui poussent les gens à dire « oui ». Le mentaliste les utilise pour que les volontaires coopèrent et pour renforcer la crédibilité.</p>
+<p>Le psychologue <strong>Robert Cialdini</strong> (<em>Influence</em>, 1984) a identifié des principes robustes (dont l'effet varie selon la culture et le contexte) qui poussent les gens à dire « oui ». Le mentaliste les utilise pour que les volontaires coopèrent et pour renforcer la crédibilité.</p>
 <table>
 <tr><th>Principe</th><th>Sur scène</th></tr>
 <tr><td><strong>Réciprocité</strong></td><td>Offrir un petit cadeau ou un compliment avant de demander un effort.</td></tr>
@@ -290,12 +290,12 @@ export const part1 = [
         content: `
 <p>Notre cerveau prend des raccourcis. Le mentaliste les connaît intimement.</p>
 <ul>
-<li><strong>Effet Barnum (ou effet Forer)</strong> : en 1948, le psychologue Bertram Forer donne à ses étudiants une « analyse personnalisée »… identique pour tous. Note moyenne de justesse : environ 4,3 sur 5. Nous acceptons comme personnelles des descriptions vagues et flatteuses.</li>
+<li><strong>Effet Barnum (ou effet Forer)</strong> <span class="ev ev-s">Prouvé</span> : en 1948, le psychologue Bertram Forer donne à ses étudiants une « analyse personnalisée »… identique pour tous. Note moyenne de justesse : environ 4,3 sur 5. Nous acceptons comme personnelles des descriptions vagues et flatteuses.</li>
 <li><strong>Biais de confirmation</strong> : on retient les réussites, on oublie les échecs. Le public se souvient des « touches », pas des « ratés ».</li>
-<li><strong>Mémoire reconstructive</strong> : les travaux d'<strong>Elizabeth Loftus</strong> montrent que nos souvenirs se modifient selon les questions posées. Un résumé du mentaliste (« Vous avez choisi librement n'importe quelle carte… ») réécrit le souvenir.</li>
-<li><strong>Cécité au choix</strong> (<em>choice blindness</em>) : en 2005, Petter Johansson et Lars Hall (Suède) échangent discrètement une photo choisie par des participants. La plupart ne remarquent rien et justifient un choix qu'ils n'ont jamais fait.</li>
-<li><strong>Cécité attentionnelle</strong> : l'expérience du « gorille invisible » (Simons et Chabris, 1999) montre qu'on ne voit pas ce qu'on ne regarde pas.</li>
-<li><strong>Illusion de contrôle</strong> : plus le spectateur manipule lui-même, plus il croit que le résultat est libre.</li>
+<li><strong>Mémoire reconstructive</strong> <span class="ev ev-s">Prouvé</span> : les travaux d'<strong>Elizabeth Loftus</strong> montrent que nos souvenirs se modifient selon les questions posées. Un résumé du mentaliste (« Vous avez choisi librement n'importe quelle carte… ») réécrit le souvenir.</li>
+<li><strong>Cécité au choix</strong> (<em>choice blindness</em>) <span class="ev ev-s">Prouvé</span> : en 2005, Petter Johansson et Lars Hall (Suède) échangent discrètement une photo choisie par des participants. Seuls 13 % des échanges sont repérés sur le moment (environ 26 % en tout) : les autres participants justifient un choix qu'ils n'ont jamais fait.</li>
+<li><strong>Cécité attentionnelle</strong> <span class="ev ev-s">Prouvé</span> : l'expérience du « gorille invisible » (Simons et Chabris, 1999) montre qu'on peut ne pas voir ce qu'on n'attend pas, <strong>même en le regardant</strong> : le suivi des yeux montre que certains fixent le gorille sans le voir (Memmert, 2006).</li>
+<li><strong>Illusion de contrôle</strong> <span class="ev ev-s">Prouvé</span> : on surestime son influence sur le hasard, par exemple quand on choisit soi-même son billet de loterie (Langer, 1975). Plus le spectateur manipule lui-même, plus il croit que le résultat est libre.</li>
 </ul>
 <div class="callout">🎯 Utilisation directe : <strong>faites résumer les conditions</strong> à la fin (« Vous avez mélangé vous-même, n'est-ce pas ? »). Vous réécrivez le souvenir dans la direction de l'impossible.</div>`,
         keyPoints: ['Effet Barnum/Forer : on se reconnaît dans des descriptions vagues.', 'La mémoire se reconstruit : le résumé final compte.', "Cécité au choix et cécité attentionnelle : on voit moins qu'on ne le croit."],
@@ -315,11 +315,11 @@ export const part1 = [
 <ul>
 <li><strong>Présupposition</strong> : « Quand vous aurez choisi votre carte, gardez-la en tête » présuppose que le choix va se faire facilement.</li>
 <li><strong>Images guidées</strong> : décrire « un objet qu'on trouve dans une pièce chaude, avec des flammes » oriente vers une cheminée ou une bougie.</li>
-<li><strong>Rythme et emphase</strong> : appuyer sur un mot (« pensez à une <em>couleur</em>... <em>vive</em>, profonde ») augmente sa probabilité.</li>
+<li><strong>Rythme et emphase</strong> <span class="ev ev-p">Praticien</span> : appuyer sur un mot (« pensez à une <em>couleur</em>... <em>vive</em>, profonde ») est censé augmenter sa probabilité. C'est un savoir de praticien, jamais testé en laboratoire : vérifiez-le avec votre carnet.</li>
 <li><strong>Restreindre sans en avoir l'air</strong> : « Pas le 1, trop évident. Pas le 10. Un nombre qui vous parle... »</li>
 </ul>
 <h3>Et la PNL ?</h3>
-<p>La <strong>programmation neuro-linguistique</strong> (PNL), créée dans les années 1970 par Bandler et Grinder, est souvent citée dans le mentalisme. Attention : les études scientifiques n'ont <strong>pas validé</strong> ses affirmations principales (par exemple les mouvements des yeux révélant le mensonge ou le « système de représentation préféré »). Derren Brown lui-même la présente avec beaucoup de recul.</p>
+<p>La <strong>programmation neuro-linguistique</strong> (PNL) <span class="ev ev-m">Mythe</span>, créée dans les années 1970 par Bandler et Grinder, est souvent citée dans le mentalisme. Attention : les études scientifiques n'ont <strong>pas validé</strong> ses affirmations principales (par exemple les mouvements des yeux révélant le mensonge ou le « système de représentation préféré »). Derren Brown lui-même la présente avec beaucoup de recul.</p>
 <div class="callout warn">⚠️ Les forçages verbaux sont <strong>probabilistes</strong>. Dans un vrai spectacle, ils servent de couche supplémentaire au-dessus d'une méthode fiable, et le public croit que c'est la seule méthode.</div>`,
         keyPoints: ['Présuppositions, images guidées, emphase et restrictions.', "La PNL n'est pas validée scientifiquement.", 'Le langage est une couche, pas une méthode fiable seule.'],
         exercise: "Écrivez un texte de 30 secondes qui oriente un spectateur vers le dessin d'une maison, sans jamais prononcer le mot. Testez-le sur 5 personnes.",
@@ -350,9 +350,9 @@ export const part1 = [
 </ol>
 <h3>Signes utiles au mentaliste</h3>
 <ul>
-<li><strong>Gestes d'apaisement</strong> : se toucher le cou, le visage, se frotter les mains : indiquent souvent un stress (décrits par l'ancien agent du FBI <strong>Joe Navarro</strong>).</li>
+<li><strong>Gestes d'apaisement</strong> <span class="ev ev-p">Praticien</span> : se toucher le cou, le visage, se frotter les mains : peuvent accompagner un stress (décrits par l'ancien agent du FBI <strong>Joe Navarro</strong>). Ce sont des hypothèses de praticien, pas des résultats d'études.</li>
 <li><strong>Figement</strong> : une personne stressée devient parfois immobile.</li>
-<li><strong>Orientation des pieds et du buste</strong> : on s'oriente vers ce qui nous intéresse, on se détourne de ce qu'on veut quitter.</li>
+<li><strong>Orientation des pieds et du buste</strong> <span class="ev ev-p">Praticien</span> : on s'oriente souvent vers ce qui nous intéresse. Là encore, c'est une observation de terrain : aucun geste n'a un sens fixe (DePaulo et al., 2003 ; Denault et al., 2020).</li>
 <li><strong>Réactions à un mot</strong> : une micro-pause, un regard, un changement de respiration lorsque vous citez le bon élément (base de nombreux effets de « détection »).</li>
 </ul>
 <div class="callout">🔍 En spectacle, on utilise ces signes surtout pour <strong>choisir</strong> les volontaires et <strong>ajuster</strong> son discours, rarement comme unique méthode.</div>`,
@@ -368,10 +368,10 @@ export const part1 = [
         title: 'Visage, émotions et micro-expressions',
         duration: 15,
         content: `
-<p>Le psychologue <strong>Paul Ekman</strong> a décrit des expressions faciales largement reconnues à travers les cultures. On cite souvent <strong>7 émotions de base</strong> :</p>
+<p>Le psychologue <strong>Paul Ekman</strong> a décrit des expressions faciales largement reconnues à travers les cultures. <span class="ev ev-d">Discuté</span> Son étude de 1971 en retient <strong>6</strong> ; le <strong>mépris</strong> a été ajouté en 1986, et c'est le moins bien reconnu d'une culture à l'autre. On parle donc souvent de « 6 + 1 » émotions de base :</p>
 <table>
 <tr><th>Émotion</th><th>Indices clés</th></tr>
-<tr><td>Joie</td><td>Coins des lèvres relevés <strong>et</strong> pattes d'oie (sourire « de Duchenne »).</td></tr>
+<tr><td>Joie</td><td>Coins des lèvres relevés <strong>et</strong> pattes d'oie (sourire « de Duchenne »). C'est un indice, pas une preuve : on peut produire ce sourire volontairement.</td></tr>
 <tr><td>Tristesse</td><td>Coins internes des sourcils relevés, coins des lèvres abaissés.</td></tr>
 <tr><td>Colère</td><td>Sourcils abaissés et rapprochés, lèvres serrées, regard fixe.</td></tr>
 <tr><td>Peur</td><td>Sourcils relevés et rapprochés, yeux très ouverts, lèvres étirées horizontalement.</td></tr>
@@ -379,14 +379,14 @@ export const part1 = [
 <tr><td>Dégoût</td><td>Nez plissé, lèvre supérieure relevée.</td></tr>
 <tr><td>Mépris</td><td>Un seul coin de la bouche relevé (asymétrique).</td></tr>
 </table>
-<p>Les <strong>micro-expressions</strong> sont des expressions très brèves (souvent moins d'une demi-seconde) qui peuvent trahir une émotion qu'on tente de masquer. Ekman a développé le système <strong>FACS</strong> qui code chaque mouvement musculaire du visage.</p>
+<p>Les <strong>micro-expressions</strong> <span class="ev ev-d">Discuté</span> sont des expressions très brèves (de 1/25 à 1/5 de seconde selon Ekman) qui peuvent trahir une émotion qu'on tente de masquer. Elles sont <strong>rares</strong> : Porter et ten Brinke (2008) n'en trouvent que dans 2 % des expressions observées, et autant chez les personnes sincères que chez les menteurs. Ekman a développé le système <strong>FACS</strong> qui code chaque mouvement musculaire du visage.</p>
 <div class="callout warn">⚠️ Limites scientifiques : l'universalité des émotions est débattue (travaux de Lisa Feldman Barrett), et repérer une micro-expression ne dit pas <em>pourquoi</em> la personne ressent cette émotion. Ce n'est pas un détecteur de mensonge.</div>
 <p>👉 Entraînez-vous avec l'outil <strong>Micro-expressions</strong> du Labo.</p>`,
-        keyPoints: ['7 émotions de base (Ekman), dont le mépris, asymétrique.', 'Micro-expressions : moins d’une demi-seconde.', "Une émotion n'est pas une preuve de mensonge."],
+        keyPoints: ['6 émotions classiques (Ekman, 1971), plus le mépris, le plus discuté.', 'Micro-expressions : très brèves, et rares.', "Une émotion n'est pas une preuve de mensonge."],
         exercise: "Faites 20 essais dans l'outil Micro-expressions en mode « flash ». Visez 80 % de réussite.",
         quiz: [
           { q: "Quelle expression est typiquement asymétrique ?", options: ['La joie', 'Le mépris', 'La peur', 'La surprise'], answer: 1, explain: "Un seul coin de la bouche relevé." },
-          { q: "Comment distinguer un vrai sourire ?", options: ['Bouche grande ouverte', 'Pattes d’oie autour des yeux', 'Sourcils froncés', 'Il n’y a aucune différence'], answer: 1, explain: "Le sourire de Duchenne implique les muscles autour des yeux." },
+          { q: "Quel indice suggère (sans le prouver) un sourire sincère ?", options: ['Bouche grande ouverte', 'Pattes d’oie autour des yeux', 'Sourcils froncés', 'Il n’y a aucune différence'], answer: 1, explain: "Le sourire de Duchenne implique les muscles autour des yeux. Mais on peut aussi le produire volontairement (Krumhuber et Manstead, 2009)." },
           { q: "Peur ou surprise : quel indice distingue la peur ?", options: ['Sourcils relevés et rapprochés, lèvres étirées', 'Bouche ouverte détendue', 'Nez plissé', 'Un coin de lèvre relevé'], answer: 0, explain: "La surprise a des sourcils en arc et une bouche détendue." },
         ],
       },
@@ -398,8 +398,8 @@ export const part1 = [
 <p>Beaucoup de « règles » circulent. Voici ce que dit la recherche :</p>
 <ul>
 <li><strong>« Regarder en haut à droite = mentir »</strong> : faux. Une étude de <strong>Richard Wiseman</strong> et ses collègues (2012) n'a trouvé aucun lien entre direction du regard et mensonge.</li>
-<li><strong>« Un menteur évite le regard »</strong> : faux en général ; certains menteurs fixent davantage pour paraître sincères.</li>
-<li><strong>Taux de réussite humain</strong> : une méta-analyse de <strong>Bond et DePaulo</strong> (2006) montre que les gens détectent le mensonge à environ <strong>54 %</strong>, à peine mieux que le hasard. Les policiers ne font pas beaucoup mieux.</li>
+<li><strong>« Un menteur évite le regard »</strong> <span class="ev ev-m">Mythe</span> : faux en général ; certains menteurs fixent davantage pour paraître sincères. La synthèse de 116 études de DePaulo et al. (2003) ne trouve pratiquement aucun lien entre regard fuyant et mensonge.</li>
+<li><strong>Taux de réussite humain</strong> <span class="ev ev-s">Prouvé</span> : une méta-analyse de <strong>Bond et DePaulo</strong> (2006) montre que les gens détectent le mensonge à environ <strong>54 %</strong>, à peine mieux que le hasard. Les policiers ne font pas beaucoup mieux.</li>
 <li><strong>Il n'existe pas de « nez de Pinocchio »</strong> : aucun signe unique et fiable du mensonge.</li>
 </ul>
 <h3>Alors comment font les mentalistes ?</h3>
